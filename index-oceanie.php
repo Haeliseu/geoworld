@@ -9,7 +9,7 @@
 <?php
     require_once 'inc/manager-db.php';
 
-    include("connect_db.php");
+    include("connect-db.php");
 
 $sql="SELECT * FROM country WHERE Continent ='Oceania'";
 $resultat=mysqli_query($db,$sql);

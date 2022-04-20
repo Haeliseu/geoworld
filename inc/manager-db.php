@@ -1,5 +1,5 @@
 <?php
-require_once 'connect-db.php';
+require_once 'connect_db.php';
 
 /** Obtenir la liste de tous les pays référencés d'un continent donné
  * @param $continent le nom d'un continent
