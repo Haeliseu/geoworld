@@ -8,7 +8,7 @@
 <?php
     require_once 'inc/manager-db.php';
 
-include("connect_db.php");
+    include("inc/connect_db.php");
 
 $sql="SELECT * FROM country WHERE Continent ='Antarctica'";
 $resultat=mysqli_query($db,$sql);
