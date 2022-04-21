@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'world_db';
 $user = 'root';
-$pass = '';
+$pass = 'root';//pour que Yamin se connecte il doit mettre root
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -14,6 +14,7 @@ $options = [
 try {
      $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
+     echo 'yooooo';
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 ?>

@@ -4,10 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <title>Homepage : Bootstrap 4</title>
+  <title>GeoWorld - App</title>
 
   <!-- Bootstrap core CSS -->
+  
   <link href="assets/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet">
+  
 
   <style>
     .bd-placeholder-img {
@@ -23,6 +25,7 @@
   </style>
   <!-- Custom styles for this template -->
   <link href="css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="d-flex flex-column h-100">
 <header>
@@ -65,8 +68,8 @@
           <a class="nav-link" href="register.php">Register</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Tapez ici pour rechercher" aria-label="Search">
+      <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
+        <input class="form-control mr-sm-2" type="text" placeholder="Tapez ici pour rechercher" aria-label="Search" name="recherche">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Recherche</button>
       </form>
     </div>

@@ -1,9 +1,11 @@
 <?php require_once 'header.php'; ?>
-<div class="ui container">
+<div class="ui container accueil">
     <center>
     <h1>Les pays du monde</h1>
-
-    <video loop autoplay> <source src="media/giphy.mp4"> </video>
+    <div class="container">
+    <video loop autoplay class="video" style="height: 40vw; width:80vw; border-radius:10px;"> <source src="media/earth-spinning.mp4"> </video>
+    </div>
+   
     </center>
 </div>
 

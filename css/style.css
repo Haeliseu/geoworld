@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+.nom-pays{
+    font-size: 8vw;
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+
+.video{
+    
+}
+
+.titre-result{
+    text-align: center;
+}
