@@ -1,26 +1,38 @@
-<?php require_once 'header.php'; ?>
-<div class="ui container">
+<?php 
+include('header.php');
+include('inc/manager-db.php');
+include('inc/connect_db.php');
+extract($_GET); 
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="ui container">
     <center>
     <h1>Les Pays d'Antarctique</h1>
     </center>
-<div>
-<table>
-<?php
-    require_once 'inc/manager-db.php';
-
-    include("inc/connect_db.php");
-
-$sql="SELECT * FROM country WHERE Continent ='Antarctica'";
-$resultat=mysqli_query($db,$sql);
-for($i=0;$i<=5;$i++){ 
-echo"<tr>";
-$ligne=mysqli_fetch_array($resultat);
-$name= $ligne["Name"];
-echo"</tr>";
-echo"<form method='GET' action='pays.php'><tr><td><input type='submit' name='name' value='$name' style='border-radius: 25px; background-color: white;' name='$name'></input></td><td></form>";
-}
-?>
-</table>
+ <table>
+   <thead>
+     <tr>
+       <th>Nom des pays</th>
+     </tr>
+   </thead>
+   <tbody>
+     <?php 
+     $stmt = $pdo->prepare("SELECT * FROM country WHERE Continent = 'antarctica'");
+     $stmt->execute();
+     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+     <tr>
+       <td><?php echo htmlspecialchars($row['Name']); ?></td>
+     </tr>
+     <!-- echo"<form method='GET' action='pays.php'><tr><td><input type='submit' name='name' value='$name' style='border-radius: 25px; background-color: white;' name='$name'></input></td><td></form>";
+} -->
+     <?php endwhile; ?>
+   </tbody>
+ </table>
+</body>
+</html>
 </div>
 <p></p>
 <?php
