@@ -6,9 +6,9 @@
 	/*connecter à la base de donnée*/
  include("connect_db.php");
  
- $sql="SELECT identifiant ,nom,prenom,mot_de_passe FROM user_data WHERE identifiant= '$identifiant' and mot_de_passe='$mot_de_passe'";
- $resultat=mysqli_query($db,$sql);
- if (!mysqli_num_rows($resultat))
+ $stmt = $pdo->prepare("SELECT identifiant ,nom,prenom,mot_de_passe FROM user_data WHERE identifiant= '$identifiant' and mot_de_passe='$mot_de_passe'");
+ $stmt->execute();
+ if (!$stmt->rowCount())
 	{  include("header.php");
 	echo "<table class='center'>
 	<tr>
