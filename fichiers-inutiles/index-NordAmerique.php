@@ -31,7 +31,11 @@ extract($_GET);
         <div class="card-body" >
           <h5 class="card-title"><?php echo htmlspecialchars($row['Name']); ?></h5>
           <h6 class="card-subtitle mb-2 text-muted"><?php echo htmlspecialchars($row['Region']); ?></h6>
-          <a href="pays.php" class="btn btn-primary" style="float: right; margin-bottom:6px;">Découvrir</a>
+          <form action="pays.php" method="get">
+            <!--<button class="btn btn-primary" style="float: right; margin-bottom:6px;" name="Aruba" id="<?php echo htmlspecialchars($row['Name']); ?>">Découvrir</button>-->
+            <input type="submit" class="btn btn-primary" style="float: right; margin-bottom:6px;" name="name" id="<?php echo htmlspecialchars($row['Name']); ?>" value="<?php echo htmlspecialchars($row['Name']); ?>">
+          </form>
+          
         </div>
       </div>
 

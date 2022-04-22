@@ -13,13 +13,15 @@ extract($_GET);
     <h1>Les Pays d'Afrique</h1>
     </center>
  <div class="container">
-   
-     <?php 
+   <div class="row">
+      <div class="col-md-12">
+      <?php 
      $stmt = $pdo->prepare("SELECT * FROM country WHERE Continent = 'Africa'");
      $stmt->execute();
+     
      while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
-
-<div class="card" style="width: 18rem; display:inline-block; margin: 2vw; background-color:lightslategray;">
+      
+      <div class="card" style="width: 18rem; display:inline-block; margin: 2vw; background-color:lightslategray;">
         <img src="<?php echo 'media/'.strtolower(htmlspecialchars($row['Code2'])).'.png';?>" class="card-img-top" alt="<?php echo 'media/'.htmlspecialchars(strtolower($row['Code2']));?>.png">
         <div class="card-body" >
           <h5 class="card-title"><?php echo htmlspecialchars($row['Name']); ?></h5>
@@ -30,6 +32,9 @@ extract($_GET);
 
      <?php endwhile; ?>
 
+      </div>
+   </div>
+     
  </div>
 </body>
 </html>

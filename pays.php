@@ -1,19 +1,80 @@
-<?php require_once 'header.php'; ?>
-<table>
+<?php 
+include('header.php');
+include('inc/manager-db.php');
+include('inc/connect_db.php');
+extract($_GET); 
+ ?>
+ <div class="container-fluid">
+    <div class="row" style="margin: 20px;">
+      <div class="col-md-12">
+        <br>
+        <br>
+
+      
+
 <?php
 $id = $_GET["name"];
 
-  $con = mysqli_connect("localhost","root","","worlddata");
-  $sql = "SELECT Code, Name, GovernmentForm, Continent, Region, SurfaceArea, IndepYear, Population, LifeExpectancy, GNP, GNPOld, LocalName FROM Country WHERE Name = '$id'";
-  $resultat=mysqli_query($con, $sql);
-  while($ligne=mysqli_fetch_array($resultat)){
-      echo "<tr><th>Code</th><th>GovernmentForm</th><th>Continent</th><th>Region</th><th>SurfaceArea</th><th>IndepYear</th><th>Population</th><th>LifeExpectancy</th><th>GNP</th><th>GNPOld</th><th>LocalName</th>
-            </tr><td>".$ligne["Code"]."</td><td>".$ligne["GovernmentForm"]."</td><td>".$ligne["Continent"]."</td><td>".$ligne["Region"]."</td><td>".$ligne["SurfaceArea"]."</td><td>".$ligne["IndepYear"]."</td><td>".$ligne["Population"]."</td><td>".$ligne["LifeExpectancy"].
-           "</td><td>".$ligne["GNP"]."</td><td>".$ligne["GNPOld"]."</td><td>".$ligne["LocalName"]."</td></tr>";
-  }
-?>
-</table>
+$stmt = $pdo->prepare("SELECT * FROM Country WHERE Name ='$id'");
+$stmt->execute();
 
+while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
+  
+?>
+    <div class="card mb-2" style="max-width: 2000px;">
+  
+   
+    <div class="col-md-12">
+      <div class="card-body" style="text-align: center;">
+        <h2 class="card-title" style="text-align: center;" id="namePays"><?php echo $row['Name'] ?></h2>
+        <p class="card-text">
+          <table class="table table-hover">
+          <thead>
+              <tr>
+                <th scope="col">GovernmentForm</th>
+                <th scope="col">Continent</th>
+                <th scope="col">Region</th>
+                <th scope="col">SurfaceArea</th>
+                <th scope="col">Independance Year</th>
+                <th scope="col">Population</th>
+                <th scope="col">Life Expectancy</th>
+                <th scope="col">GNP</th>
+                <th scope="col">GNPOld</th>
+                <th scope="col">Local Name</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row"><?php echo $row["GovernmentForm"] ?></td>
+              <td><?php echo $row["Continent"] ?></td>
+              <td><?php echo $row["Region"] ?></td>
+              <td><?php echo $row["SurfaceArea"] ?></td>
+              <td><?php echo $row["IndepYear"] ?></td>
+              <td><?php echo $row["Population"] ?></td>
+              <td><?php echo $row["LifeExpectancy"] ?></td>
+              <td><?php echo $row["GNP"] ?></td>
+              <td><?php echo $row["GNPOld"] ?></td>
+              <td><?php echo $row["LocalName"] ?></td>
+            </tr>
+          </tbody>
+
+          </table>
+        </p>
+        <p class="card-text"><small class="text-muted"><a href="https://www.google.com/maps/search/?api=1&query=<?php echo $row['Name'] ?>" target="_blank"><?php echo $row['Name'] ?> sur Google Maps</a></small></p>
+      </div>
+    </div>
+ 
+</div>
+<br>
+<br>
+  
+    <img src="<?php echo 'media/'.strtolower(htmlspecialchars($row['Code2'])).'.png';?>" alt=""  style="width: 100%; height:auto; border-radius:40px">
+  
+
+    </div>
+    </div>
+ </div>
+ <?php endwhile; ?>
 <?php
 require_once 'javascripts.php';
 require_once 'footer.php';

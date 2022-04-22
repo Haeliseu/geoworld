@@ -44,14 +44,16 @@
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false">Continents</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="index-afrique.php">Les Pays d'Afrique</a>
-            <a class="dropdown-item" href="index-asie.php">Les Pays d'Asie</a>
-            <a class="dropdown-item" href="index-NordAmerique.php">Les Pays d'Amérique du Nord</a>
-            <a class="dropdown-item" href="index-SudAmerique.php">Les Pays d'Amérique du Sud</a>
-            <a class="dropdown-item" href="index-europe.php">Les Pays d'Europe</a>
-            <a class="dropdown-item" href="index-oceanie.php">Les Pays d'Océanie</a>
-            <a class="dropdown-item" href="index-antarctique.php">Les Pays d'Antarctique</a>
+             <div class="dropdown-menu" aria-labelledby="dropdown01">
+           <form action="index-continent.php" method="get">
+             <button type="submit" name="continent" value="Africa" class="dropdown-item"> Les Pays d'Afrique</button>
+             <button type="submit" name="continent" value="Asia" class="dropdown-item">Les Pays d'Asie</button>
+             <button type="submit" name="continent" value="North America" class="dropdown-item">Les Pays d'Amérique du Nord</button>
+             <button type="submit" name="continent" value="South America" class="dropdown-item">Les Pays d'Amérique du Sud</button>
+             <button type="submit" name="continent" value="Europe" class="dropdown-item">Les Pays d'Europe</button>
+             <button type="submit" name="continent" value="Oceania" class="dropdown-item">Les Pays d'Océanie</button>
+             <button type="submit" name="continent" value="Antartica" class="dropdown-item">Les Pays d'Antarctique</button>
+           </form>
           </div>
         </li>
       </ul>
