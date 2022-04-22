@@ -34,7 +34,10 @@ OR (`LocalName` LIKE '%".$query."%')");
         <div class="card-body" >
           <h5 class="card-title"><?php echo htmlspecialchars($row['Name']); ?></h5>
           <h6 class="card-subtitle mb-2 text-muted"><?php echo htmlspecialchars($row['Region']); ?></h6>
-          <a href="pays.php" class="btn btn-primary" style="float: right; margin-bottom:6px;">Découvrir</a>
+          <form action="pays.php" method="get">
+            <button type="submit" class="btn btn-primary" style="float: right; margin-bottom:6px;" name="name" value="<?php echo htmlspecialchars($row['Name']); ?>">Découvrir</button>
+            
+          </form>
         </div>
       </div>
         
