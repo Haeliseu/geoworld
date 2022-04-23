@@ -1,12 +1,15 @@
 <?php
-		session_start();
+	session_start();
 	$identifiant=$_POST["identifiant"];
 	$mot_de_passe=$_POST["mot_de_passe"];
 	
 	/*connecter à la base de donnée*/
- include("connect_db.php");
+ include("/connect_db.php");
  
- $stmt = $pdo->prepare("SELECT identifiant ,nom,prenom,mot_de_passe FROM user_data WHERE identifiant= '$identifiant' and mot_de_passe='$mot_de_passe'");
+ $stmt = $pdo->prepare("SELECT identifiant ,nom,prenom,mot_de_passe FROM user_data WHERE identifiant= ':identifiant and mot_de_passe=:pass");
+$stmt->bindParam(":identifiant", $identifiant, PDO::PARAM_STR);
+$stmt->bindParam(":pass", $mot_de_passe, PDO::PARAM_STR);
+
  $stmt->execute();
  if (!$stmt->rowCount())
 	{  include("header.php");
@@ -21,7 +24,7 @@
 	include("footer.php");
 	}
 else {
-	if ($ligne=mysqli_fetch_array($resultat))
+	if ($stmt=mysqli_fetch_array($resultat))
 		//tant qu'il reste un enregistrement à affecter
 	{
 		$_SESSION["identifiant"]=$ligne["identifiant"];

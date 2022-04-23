@@ -6,7 +6,9 @@ extract($_GET);
 
 
 $name = $_GET["continent"];
-$stmt = $pdo->prepare("SELECT * FROM country WHERE Continent = '".$name."'");
+$stmt = $pdo->prepare("SELECT * FROM `country` WHERE `Continent` = :continent");
+
+$stmt->bindValue(":continent", $name, PDO::PARAM_STR);
 $stmt->execute();
 ?>
 

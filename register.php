@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 	include("header.php"); ?>
   <div class="container">
     <div class="row">
@@ -10,7 +10,7 @@ session_start();
      <div class="col-md-8">
      <h2 class="log" style="text-align: center;">Créer son compte</h2>
      <br>
-     <form action="envoi.php" method="post" style="background-color: lightgray; padding:15px; border-radius:5px;">
+     <form action="envoi.php" method="post" style="background-color: lightgray; padding:15px; border-radius:5px; box-shadow: 10px 5px 5px gray;">
        
  
        <div class="mb-3">
@@ -37,15 +37,19 @@ session_start();
          <label for="tel" class="form-label">Téléphone :</label>
          <input type="tel" class="form-control" id="tel"  name="tel" value="" required>
        </div>
+       <div class="mb-3" style="width: 12vw;">
+         <label for="tel" class="form-label">Date de naissance :</label>
+         <input type="date" class="form-control" id="dateNaissance"  name="dateNaissance" value="" required>
+       </div>
        <h5>Statut :</h5>
        <div class="form-check">
          <required>
-         <input type="radio" class="form-check-input" id="P"  name="P_ou_E">
+         <input type="radio" class="form-check-input" value="P"  name="P_ou_E">
          <label class="form-check-label" for="P">
            Professeur
          </label>
          <br>
-         <input type="radio" class="form-check-input" id="E"  name="P_ou_E" checked>
+         <input type="radio" class="form-check-input" value="E"  name="P_ou_E" checked>
          <label class="form-check-label" for="E">
            Élève
          </label>
@@ -73,6 +77,7 @@ session_start();
             $P_ou_E=$_POST["P_ou_E"];
             $tel=$_POST["tel"];
             $mot_de_passe=$_POST["mot_de_passe"]; 
+            $dateNaissance = $_POST["dateNaissance"];
             //On se connecte
             $stmt = $pdo->prepare("INSERT INTO user_data VALUES ('".$identifiant."','".$nom."','".$prenom."','".$P_ou_E."','".$tel."','SHA1('".$mot_de_passe."')");
             $stmt->execute();
