@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'world_db';
 $user = 'root';
-$pass = 'root';//pour que Yamin se connecte il doit mettre root
+$pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
