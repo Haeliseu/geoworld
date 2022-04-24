@@ -58,7 +58,7 @@
             ProjetPPE-SLAM
           </a>
           <li class="nav-item">
-          <a class="nav-link " href="compte_client.php">
+          <a class="nav-link " href="compte.php">
           <td class="nav-link">Compte :<?php echo $_SESSION["prenom"]." ".$_SESSION["nom"];?></td>
           </a>
         </li>
