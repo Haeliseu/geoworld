@@ -67,12 +67,25 @@ session_start();
             ProjetPPE-SLAM
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="connexion.php">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="register.php">Register</a>
-        </li>
+        <?php
+          if (isset($_SESSION["prenom"]) && $_SESSION["prenom"] == true) {
+            echo '<li class="nav-item">
+    
+                      <a class="nav-link " href="profil.php">
+          
+                      <td class="nav-link">Compte '.$_SESSION["prenom"]." ".$_SESSION["nom"];'?></td>
+                      </a>
+                    </li>';
+          }else {
+            echo ' <li class="nav-item">
+            <a class="nav-link" href="connexion.php">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.php">Register</a>
+          </li>';
+          }
+        ?>
+        
       </ul>
       <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
         <input class="form-control mr-sm-2" type="text" placeholder="Tapez ici pour rechercher" aria-label="Search" name="recherche">

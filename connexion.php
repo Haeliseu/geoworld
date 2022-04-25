@@ -1,17 +1,17 @@
 <?php
-session_start();
- 
+
+ include('header.php');
 include('inc/connect_db.php');
  
 if(isset($_POST['formconnexion'])) {
    $mail = htmlspecialchars($_POST['identifiant']);
-   $password = sha1($_POST['mot_de_passe']);
+   $password = $_POST['password'];
    if(!empty($mail) AND !empty($password)) {
-      $requser = $bdd->prepare("SELECT * FROM user_data WHERE identifiant = ? AND mot_de_passe = ?");
-      $requser->execute(array($mail, $password));
-      $userexist = $requser->rowCount();
+      $stmt = $pdo->prepare("SELECT * FROM user_data WHERE identifiant = ? AND mot_de_passe = SHA1(?)");
+      $stmt->execute(array($mail, $password));
+      $userexist = $stmt->rowCount();
       if($userexist == 1) {
-         $userinfo = $requser->fetch();
+         $userinfo = $stmt->fetch();
          $_SESSION['id'] = $userinfo['idUser'];
          $_SESSION['nom'] = $userinfo['nom'];
          $_SESSION['prenom'] = $userinfo['prenom'];
@@ -24,26 +24,43 @@ if(isset($_POST['formconnexion'])) {
       $erreur = "Tous les champs doivent être complétés !";
    }
 }
-    include("javascripts.php");
-	include("footer.php");
 ?>
-<html>
-    <link rel="stylesheet" type="text/css" href="css\custom.css">
-   <body>
-      <div align="center">
-         <h2>Connexion</h2>
-         <br /><br />
-         <form method="POST" action="">
-            <input type="email" name="identifiant" placeholder="Identifiant" />
-            <input type="password" name="password" placeholder="Mot de passe" />
-            <br /><br />
-            <input type="submit" name="formconnexion" value="Se connecter !" />
-         </form>
-         <?php
-         if(isset($erreur)) {
-            echo '<font color="red">'.$erreur."</font>";
-         }
-         ?>
+ <div class="container">
+ <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+         <div class="card" style="width: auto; box-shadow: 10px 5px 5px gray;">
+            <img src="media/login.png" class="card-img-top" alt="..." style="height: auto; ">
+            <div class="card-body">
+               <h3 class="card-title" style="text-align:center;">CONNEXION</h3>
+               <form method="POST" action="" style="text-align: center;">
+                  <input type="email" name="identifiant" placeholder="Identifiant" />
+                  <br>
+                  <br>
+                  <input type="password" name="password" placeholder="Mot de passe" />
+                  <br /><br />
+                  <input class="btn btn-primary" type="submit" name="formconnexion" value="Se connecter !" />
+                  <br>
+                  <?php
+                     if(isset($erreur)) {
+                        echo '<font color="red">'.$erreur."</font>";
+                     }
+                  ?>
+               </form>
+            </div>
+         </div>
+
+         
+        
       </div>
-   </body>
-</html>
+      <div class="col-md-3"></div>
+
+ </div>
+   
+
+     
+
+<?php
+      include("javascripts.php");
+      include("footer.php");
+?>
