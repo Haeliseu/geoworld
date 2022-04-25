@@ -24,8 +24,11 @@ if(isset($_POST['formconnexion'])) {
       $erreur = "Tous les champs doivent être complétés !";
    }
 }
+    include("javascripts.php");
+	include("footer.php");
 ?>
 <html>
+    <link rel="stylesheet" type="text/css" href="css\custom.css">
    <body>
       <div align="center">
          <h2>Connexion</h2>

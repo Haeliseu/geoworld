@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:8889
--- Généré le : mer. 20 avr. 2022 à 15:09
--- Version du serveur :  5.7.34
--- Version de PHP : 8.0.8
+-- Hôte : 127.0.0.1
+-- Généré le :  lun. 25 avr. 2022 à 00:10
+-- Version du serveur :  5.7.17
+-- Version de PHP :  5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,16 +19,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `world_db`
+-- Base de données :  `world_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `City`
+-- Structure de la table `city`
 --
 
-CREATE TABLE `City` (
+CREATE TABLE `city` (
   `id` int(11) NOT NULL,
   `idCountry` int(11) DEFAULT NULL,
   `Name` char(35) NOT NULL DEFAULT '',
@@ -36,10 +37,10 @@ CREATE TABLE `City` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `City`
+-- Déchargement des données de la table `city`
 --
 
-INSERT INTO `City` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
+INSERT INTO `city` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
 (1, 2, 'Kabul', 'Kabol', 1780000),
 (2, 2, 'Qandahar', 'Qandahar', 237500),
 (3, 2, 'Herat', 'Herat', 186800),
@@ -1164,7 +1165,7 @@ INSERT INTO `City` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
 (1122, 100, 'Bellary', 'Karnataka', 245391),
 (1123, 100, 'Barddhaman (Burdwan)', 'West Bengali', 245079),
 (1124, 100, 'Rampur', 'Uttar Pradesh', 243742);
-INSERT INTO `City` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
+INSERT INTO `city` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
 (1125, 100, 'Jalgaon', 'Maharashtra', 242193),
 (1126, 100, 'Muzaffarpur', 'Bihar', 241107),
 (1127, 100, 'Nizamabad', 'Andhra Pradesh', 241034),
@@ -2342,7 +2343,7 @@ INSERT INTO `City` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
 (2299, 45, 'Lubumbashi', 'Shaba', 851381),
 (2300, 45, 'Mbuji-Mayi', 'East Kasai', 806475),
 (2301, 45, 'Kolwezi', 'Shaba', 417810);
-INSERT INTO `City` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
+INSERT INTO `city` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
 (2302, 45, 'Kisangani', 'Haute-Zaïre', 417517),
 (2303, 45, 'Kananga', 'West Kasai', 393030),
 (2304, 45, 'Likasi', 'Shaba', 299118),
@@ -3462,7 +3463,7 @@ INSERT INTO `City` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
 (3418, 216, 'Bandirma', 'Balikesir', 90200),
 (3419, 211, 'Ashgabat', 'Ahal', 540600),
 (3420, 211, 'Chärjew', 'Lebap', 189200);
-INSERT INTO `City` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
+INSERT INTO `city` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
 (3421, 211, 'Dashhowuz', 'Dashhowuz', 141800),
 (3422, 211, 'Mary', 'Mary', 101000),
 (3423, 205, 'Cockburn Town', 'Grand Turk', 4800),
@@ -4126,10 +4127,10 @@ INSERT INTO `City` (`id`, `idCountry`, `Name`, `District`, `Population`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Country`
+-- Structure de la table `country`
 --
 
-CREATE TABLE `Country` (
+CREATE TABLE `country` (
   `id` int(11) NOT NULL,
   `Code` char(3) DEFAULT NULL,
   `Name` char(52) NOT NULL DEFAULT '',
@@ -4149,10 +4150,10 @@ CREATE TABLE `Country` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `Country`
+-- Déchargement des données de la table `country`
 --
 
-INSERT INTO `Country` (`id`, `Code`, `Name`, `Continent`, `Region`, `SurfaceArea`, `IndepYear`, `Population`, `LifeExpectancy`, `GNP`, `GNPOld`, `LocalName`, `GovernmentForm`, `HeadOfState`, `Capital`, `Code2`) VALUES
+INSERT INTO `country` (`id`, `Code`, `Name`, `Continent`, `Region`, `SurfaceArea`, `IndepYear`, `Population`, `LifeExpectancy`, `GNP`, `GNPOld`, `LocalName`, `GovernmentForm`, `HeadOfState`, `Capital`, `Code2`) VALUES
 (1, 'ABW', 'Aruba', 'North America', 'Caribbean', 193.00, NULL, 103000, 78.4, 828.00, 793.00, 'Aruba', 'Nonmetropolitan Territory of The Netherlands', 'Beatrix', 129, 'AW'),
 (2, 'AFG', 'Afghanistan', 'Asia', 'Southern and Central Asia', 652090.00, 1919, 22720000, 45.9, 5976.00, NULL, 'Afganistan/Afqanestan', 'Islamic Emirate', 'Mohammad Omar', 1, 'AF'),
 (3, 'AGO', 'Angola', 'Africa', 'Central Africa', 1246700.00, 1975, 12878000, 38.3, 6648.00, 7984.00, 'Angola', 'Republic', 'José Eduardo dos Santos', 56, 'AO'),
@@ -4396,10 +4397,10 @@ INSERT INTO `Country` (`id`, `Code`, `Name`, `Continent`, `Region`, `SurfaceArea
 -- --------------------------------------------------------
 
 --
--- Structure de la table `CountryLanguage`
+-- Structure de la table `countrylanguage`
 --
 
-CREATE TABLE `CountryLanguage` (
+CREATE TABLE `countrylanguage` (
   `idCountry` int(11) NOT NULL DEFAULT '0',
   `idLanguage` int(11) NOT NULL DEFAULT '0',
   `IsOfficial` enum('T','F') NOT NULL DEFAULT 'F',
@@ -4407,10 +4408,10 @@ CREATE TABLE `CountryLanguage` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `CountryLanguage`
+-- Déchargement des données de la table `countrylanguage`
 --
 
-INSERT INTO `CountryLanguage` (`idCountry`, `idLanguage`, `IsOfficial`, `Percentage`) VALUES
+INSERT INTO `countrylanguage` (`idCountry`, `idLanguage`, `IsOfficial`, `Percentage`) VALUES
 (1, 1, 'T', 5.3),
 (1, 2, 'F', 9.5),
 (1, 3, 'F', 76.7),
@@ -5399,19 +5400,19 @@ INSERT INTO `CountryLanguage` (`idCountry`, `idLanguage`, `IsOfficial`, `Percent
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Language`
+-- Structure de la table `language`
 --
 
-CREATE TABLE `Language` (
+CREATE TABLE `language` (
   `id` int(11) NOT NULL,
   `Name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `Language`
+-- Déchargement des données de la table `language`
 --
 
-INSERT INTO `Language` (`id`, `Name`) VALUES
+INSERT INTO `language` (`id`, `Name`) VALUES
 (1, 'Dutch'),
 (2, 'English'),
 (3, 'Papiamento'),
@@ -5870,74 +5871,99 @@ INSERT INTO `Language` (`id`, `Name`) VALUES
 (456, 'Lozi'),
 (457, 'Nsenga');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_data`
+--
+
+CREATE TABLE `user_data` (
+  `idUser` int(11) NOT NULL,
+  `identifiant` varchar(50) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `prenom` varchar(20) NOT NULL,
+  `tel` int(12) NOT NULL,
+  `mot_de_passe` varchar(50) NOT NULL,
+  `P_ou_E` varchar(5) NOT NULL,
+  `dateAjout` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Index pour les tables déchargées
 --
 
 --
--- Index pour la table `City`
+-- Index pour la table `city`
 --
-ALTER TABLE `City`
+ALTER TABLE `city`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `fk_constraint_city_country` (`idCountry`);
 
 --
--- Index pour la table `Country`
+-- Index pour la table `country`
 --
-ALTER TABLE `Country`
+ALTER TABLE `country`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Index pour la table `CountryLanguage`
+-- Index pour la table `countrylanguage`
 --
-ALTER TABLE `CountryLanguage`
+ALTER TABLE `countrylanguage`
   ADD PRIMARY KEY (`idCountry`,`idLanguage`) USING BTREE,
   ADD KEY `fk_constraint_Language` (`idLanguage`);
 
 --
--- Index pour la table `Language`
+-- Index pour la table `language`
 --
-ALTER TABLE `Language`
+ALTER TABLE `language`
   ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Index pour la table `user_data`
+--
+ALTER TABLE `user_data`
+  ADD PRIMARY KEY (`idUser`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT pour la table `City`
+-- AUTO_INCREMENT pour la table `city`
 --
-ALTER TABLE `City`
+ALTER TABLE `city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4080;
-
 --
--- AUTO_INCREMENT pour la table `Country`
+-- AUTO_INCREMENT pour la table `country`
 --
-ALTER TABLE `Country`
+ALTER TABLE `country`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
-
 --
--- AUTO_INCREMENT pour la table `Language`
+-- AUTO_INCREMENT pour la table `language`
 --
-ALTER TABLE `Language`
+ALTER TABLE `language`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=458;
-
+--
+-- AUTO_INCREMENT pour la table `user_data`
+--
+ALTER TABLE `user_data`
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `City`
+-- Contraintes pour la table `city`
 --
-ALTER TABLE `City`
-  ADD CONSTRAINT `fk_constraint_city_country` FOREIGN KEY (`idCountry`) REFERENCES `Country` (`id`);
+ALTER TABLE `city`
+  ADD CONSTRAINT `fk_constraint_city_country` FOREIGN KEY (`idCountry`) REFERENCES `country` (`id`);
 
 --
--- Contraintes pour la table `CountryLanguage`
+-- Contraintes pour la table `countrylanguage`
 --
-ALTER TABLE `CountryLanguage`
-  ADD CONSTRAINT `fk_constraint_Country` FOREIGN KEY (`idCountry`) REFERENCES `Country` (`id`),
-  ADD CONSTRAINT `fk_constraint_Language` FOREIGN KEY (`idLanguage`) REFERENCES `Language` (`id`);
+ALTER TABLE `countrylanguage`
+  ADD CONSTRAINT `fk_constraint_Country` FOREIGN KEY (`idCountry`) REFERENCES `country` (`id`),
+  ADD CONSTRAINT `fk_constraint_Language` FOREIGN KEY (`idLanguage`) REFERENCES `language` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
