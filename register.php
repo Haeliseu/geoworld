@@ -11,8 +11,6 @@
      <h2 class="log" style="text-align: center;">Créer son compte</h2>
      <br>
      <form action="envoi.php" method="post" style="background-color: lightgray; padding:15px; border-radius:5px; box-shadow: 10px 5px 5px gray;">
-       
- 
        <div class="mb-3">
          <label for="inputEmail" class="form-label">Identifiant(email) :</label>
          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="identifiant" value="" required>
@@ -78,14 +76,7 @@
             $tel=$_POST["tel"];
             $mot_de_passe=$_POST["mot_de_passe"]; 
             $dateNaissance = $_POST["dateNaissance"];
-            //On se connecte
-            $stmt = $pdo->prepare("INSERT INTO user_data VALUES ('".$identifiant."','".$nom."','".$prenom."','".$P_ou_E."','".$tel."','SHA1('".$mot_de_passe."')");
-            $stmt->execute();
-            //On prépare la commande sql d'insertion
-		      	//$resultat=mysqli_query ($db,$sql) or die ('Erreur SQL !'.$sql.'<br />'.mysqli_error($db)); 
-				    echo "Votre compte a été crée avec succes.";
-            // on ferme la connexion
-            //mysqli_close($db);
+           
             }
         require_once 'javascripts.php';
         require_once 'footer.php';

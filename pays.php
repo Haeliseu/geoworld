@@ -63,7 +63,12 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
 
           </table>
         </p>
-        <p class="card-text"><small class="text-muted"><a href="https://www.google.com/maps/search/?api=1&query=<?php echo $row['Name'] ?>" target="_blank"><?php echo $row['Name'] ?> sur Google Maps</a></small></p>
+        <p class="card-text">
+          <small class="text-muted">
+            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $row['Name'] ?>" target="_blank">
+          <?php echo $row['Name'] ?> sur Google Maps</a>
+          </small>
+        </p>
       </div>
     </div>
  
@@ -71,7 +76,8 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
 <br>
 <br>
   
-    <img src="<?php echo 'media/'.strtolower(htmlspecialchars($row['Code2'])).'.png';?>" alt=""  style="width: 100%; height:auto; border-radius:40px">
+    <img src="<?php echo 'media/'.strtolower(htmlspecialchars($row['Code2'])).'.png';?>"
+     alt=""  style="width: 100%; height:auto; border-radius:40px">
   
 
     </div>

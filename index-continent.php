@@ -25,30 +25,20 @@ $stmt->execute();
       <?php 
       
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
-      
 
       <div class="card" style="width: 18rem; display:inline-block; margin: 2vw; background-color:lightslategray;">
-        <img src="<?php echo 'media/'.strtolower(htmlspecialchars($row['Code2'])).'.png';?>" class="card-img-top" alt="<?php echo 'media/'.htmlspecialchars(strtolower($row['Code2']));?>.png">
+        <img src="<?php echo 'media/'.strtolower(htmlspecialchars($row['Code2'])).'.png';?>" 
+        class="card-img-top" alt="<?php echo 'media/'.htmlspecialchars(strtolower($row['Code2']));?>.png">
         <div class="card-body" >
           <h5 class="card-title"><?php echo htmlspecialchars($row['Name']); ?></h5>
           <h6 class="card-subtitle mb-2 text-muted"><?php echo htmlspecialchars($row['Region']); ?></h6>
           <form action="pays.php" method="get">
-            <button type="submit" class="btn btn-primary" style="float: right; margin-bottom:6px;" name="name" value="<?php echo htmlspecialchars($row['Name']); ?>">Découvrir</button>
-            
+            <button type="submit" class="btn btn-primary" style="float: right; margin-bottom:6px;" 
+            name="name" value="<?php echo htmlspecialchars($row['Name']); ?>">Découvrir</button>
           </form>
-          
         </div>
       </div>
-
-
-        
-        
-     
-      <!-- echo"<form method='GET' action='pays.php'><tr><td><input type='submit' name='name' value='$name' style='border-radius: 25px; background-color: white;' name='$name'></input></td><td></form>";
-  } -->
       <?php endwhile; ?>
-
-  
     </div>
    </div>
  

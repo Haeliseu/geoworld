@@ -4,9 +4,6 @@ include('inc/manager-db.php');
 include('inc/connect_db.php');
 extract($_GET); 
 
-
-
-
 $query = $_GET['recherche'];
 $queryText = $query;
 // Création requête préparée affichant totalité des résultats
