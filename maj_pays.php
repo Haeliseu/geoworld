@@ -14,9 +14,9 @@ $headOfState = $_POST['headOfState'];
 $commentaire = $_POST['commentaire'];
 
 // Conversion de la surface en float
-//$surface =
+$surface = floatval($surface);
 // Conversion de la population en int
-//$population = 
+$population = intval($population); 
 
 $stmt = $pdo->prepare(
     "UPDATE `Country`
@@ -31,7 +31,7 @@ $stmt = $pdo->prepare(
 );
 
 $stmt->bindParam(":surface", $surface, PDO::PARAM_INT);
-$stmt->bindParam(":govform", $govform, PDO::PARAM_STR);
+$stmt->bindParam(":govform", $govForm, PDO::PARAM_STR);
 $stmt->bindParam(":pop", $population, PDO::PARAM_INT);
 $stmt->bindParam(":lifeEx", $lifeEx, PDO::PARAM_STR);
 $stmt->bindParam(":gnp", $gnp, PDO::PARAM_INT);
