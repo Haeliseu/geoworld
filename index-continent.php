@@ -4,10 +4,13 @@ include('inc/manager-db.php');
 include('inc/connect_db.php');
 extract($_GET); 
 
-
+// Récupération du nom du continent
 $name = $_GET["continent"];
+
+// Préparation de la requête 
 $stmt = $pdo->prepare("SELECT * FROM `country` WHERE `Continent` = :continent");
 
+// Paramétrage de la valeur de continent
 $stmt->bindValue(":continent", $name, PDO::PARAM_STR);
 $stmt->execute();
 ?>
@@ -24,6 +27,7 @@ $stmt->execute();
     <div class="col-md-12">
       <?php 
       
+      //Déclenchement de la boucle de récupération des données
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
 
       <div class="card" style="width: 18rem; display:inline-block; margin: 2vw; background-color:lightslategray;">

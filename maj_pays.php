@@ -2,7 +2,7 @@
 session_start();
 include("inc/connect_db.php");
 
-
+// Récupération des données
 $name = $_POST['nom'];
 $govForm = $_POST['govForm'];
 $surface = $_POST['surface'];
@@ -18,6 +18,7 @@ $surface = floatval($surface);
 // Conversion de la population en int
 $population = intval($population); 
 
+// Préparation de la requête 
 $stmt = $pdo->prepare(
     "UPDATE `Country`
     SET `SurfaceArea` = :surface,
@@ -30,6 +31,7 @@ $stmt = $pdo->prepare(
     WHERE `Name` = :nom;"
 );
 
+//Paramétrage des données
 $stmt->bindParam(":surface", $surface, PDO::PARAM_INT);
 $stmt->bindParam(":govform", $govForm, PDO::PARAM_STR);
 $stmt->bindParam(":pop", $population, PDO::PARAM_INT);
@@ -41,5 +43,6 @@ $stmt->bindParam(":nom", $name, PDO::PARAM_STR);
     
 $stmt->execute();
 
+// Retour vers la page quittée
 header("location: pays.php?name=".$name."");
 ?>

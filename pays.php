@@ -37,7 +37,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
                 <th scope="col">GovernmentForm</th>
                 <th scope="col">Continent</th>
                 <th scope="col">Region</th>
-                <th scope="col">SurfaceArea</th>
+                <th scope="col">Surface Area</th>
                 <th scope="col">Independance Year</th>
                 <th scope="col">Population</th>
                 <th scope="col">Life Expectancy</th>
@@ -72,6 +72,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
             <button href="edit.php" class="btn btn-primary" style="float: right;" value="<?php echo htmlspecialchars($row['Name']); ?>" name="name">Editer</button>
           </form>
         </p>
+
       </div>
     </div>
  
