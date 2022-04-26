@@ -70,10 +70,8 @@ session_start();
         <?php
           if (isset($_SESSION["prenom"]) && $_SESSION["prenom"] == true) {
             echo '<li class="nav-item">
-    
                       <a class="nav-link " href="profil.php">
-          
-                      <td class="nav-link">Compte '.$_SESSION["prenom"]." ".$_SESSION["nom"];'?></td>
+                        <td class="nav-link">Compte : '.$_SESSION["prenom"].' '.$_SESSION["nom"].'</td>
                       </a>
                     </li>';
           }else {

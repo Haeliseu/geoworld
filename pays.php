@@ -8,7 +8,6 @@ extract($_GET);
     <div class="row" style="margin: 20px;">
       <div class="col-md-12">
         <br>
-        <br>
 
       
 
@@ -24,6 +23,7 @@ $stmt->execute();
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
   
 ?>
+
     <div class="card mb-2" style="max-width: 2000px;">
   
    
@@ -43,7 +43,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
                 <th scope="col">Life Expectancy</th>
                 <th scope="col">GNP</th>
                 <th scope="col">GNPOld</th>
-                <th scope="col">Local Name</th>
+                <th scope="col">Head of State</th>
               </tr>
           </thead>
           <tbody>
@@ -57,7 +57,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
               <td><?php echo $row["LifeExpectancy"] ?></td>
               <td><?php echo $row["GNP"] ?></td>
               <td><?php echo $row["GNPOld"] ?></td>
-              <td><?php echo $row["LocalName"] ?></td>
+              <td><?php echo $row["HeadOfState"] ?></td>
             </tr>
           </tbody>
 
@@ -68,6 +68,9 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
             <a href="https://www.google.com/maps/search/?api=1&query=<?php echo $row['Name'] ?>" target="_blank">
           <?php echo $row['Name'] ?> sur Google Maps</a>
           </small>
+          <form action="edit.php" method="get">
+            <button href="edit.php" class="btn btn-primary" style="float: right;" value="<?php echo htmlspecialchars($row['Name']); ?>" name="name">Editer</button>
+          </form>
         </p>
       </div>
     </div>
