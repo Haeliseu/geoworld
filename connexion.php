@@ -7,8 +7,10 @@ if(isset($_POST['formconnexion'])) {
    $mail = htmlspecialchars($_POST['identifiant']);
    $password = $_POST['password'];
    if(!empty($mail) AND !empty($password)) {
-      $stmt = $pdo->prepare("SELECT * FROM user_data WHERE identifiant = ? AND mot_de_passe = SHA1(?)");
-      $stmt->execute(array($mail, $password));
+      $stmt = $pdo->prepare("SELECT * FROM `user_data` WHERE `identifiant` = :identifiant AND `mot_de_passe` = SHA1(:pass)");
+      $stmt->bindParam('identifiant', $mail, PDO::PARAM_STR);
+      $stmt->bindParam('pass', $password, PDO::PARAM_STR);
+      $stmt->execute();
       $userexist = $stmt->rowCount();
       if($userexist == 1) {
          $userinfo = $stmt->fetch();

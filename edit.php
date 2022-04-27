@@ -23,7 +23,7 @@
             <form action="maj_pays.php" method="post">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Nom du Pays</span>
-                    <input type="text" class="form-control" placeholder="Pays" value="<?php echo $row['Name']; ?>" name="nom">
+                    <input type="text" class="form-control" placeholder="Pays" value="<?php echo $row['Name']; ?>" name="nom" disabled>
                 </div>
                 <h4 for="basic-url" class="form-label" style="text-align: center;">Infos du Pays</h4>
                 <div class="input-group mb-3">
@@ -60,9 +60,10 @@
 
                 <div class="input-group">
                     <span class="input-group-text">Commentaires</span>
-                    <textarea class="form-control" value="" name="commentaire"></textarea>
+                    <textarea class="form-control" value="" name="commentaire" id="com"></textarea>
                 </div>
                 <br>
+                <a href="pays.php?name=<?php echo $row['Name'] ?>" class="btn btn-danger">Annuler</a>
                 <button type="submit" class="btn btn-primary" style="float:right;">Enregistrer</button>
             </form>
             
@@ -70,7 +71,16 @@
         <div class="col-md-3"></div>
     </div>
 </div>
-
+<script>
+    // Fonction permettant d'ajouter la date de mise à jour dans le champ de commentaire.
+    function addDateMaj() {
+        var today = new Date();
+        today = today.toLocaleDateString("fr");
+        var commentaire = document.getElementById('com');
+        commentaire.innerHTML += 'Mis à jour le : '+today+ ' ' ;
+    }
+    window.onload = addDateMaj();
+</script>
 <?php 
 endwhile;
 include ('footer.php');

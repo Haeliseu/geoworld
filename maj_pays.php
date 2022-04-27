@@ -27,7 +27,8 @@ $stmt = $pdo->prepare(
     `LifeExpectancy` = :lifeEx,
     `GNP` = :gnp,
     `GNPOld` = :gnpOld,
-    `HeadOfState` = :headOfState
+    `HeadOfState` = :headOfState,
+    `Commentary`= :commentaire
     WHERE `Name` = :nom;"
 );
 
@@ -39,6 +40,7 @@ $stmt->bindParam(":lifeEx", $lifeEx, PDO::PARAM_STR);
 $stmt->bindParam(":gnp", $gnp, PDO::PARAM_INT);
 $stmt->bindParam(":gnpOld", $gnpOld, PDO::PARAM_STR);
 $stmt->bindParam(":headOfState", $headOfState, PDO::PARAM_STR);
+$stmt->bindParam(":commentaire", $commentaire, PDO::PARAM_STR);
 $stmt->bindParam(":nom", $name, PDO::PARAM_STR);
     
 $stmt->execute();
