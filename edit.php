@@ -12,7 +12,6 @@
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
 
 ?>
-</a>
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
@@ -64,7 +63,7 @@
                 </div>
                 <br>
                 <a href="pays.php?name=<?php echo $row['Name'] ?>" class="btn btn-danger">Annuler</a>
-                <button type="submit" class="btn btn-primary" style="float:right;">Enregistrer</button>
+                <button type="submit" class="btn btn-primary" style="float:right;" name="nom" value="<?php echo $row['Name'] ?>">Enregistrer</button>
             </form>
             
         </div>

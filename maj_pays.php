@@ -46,5 +46,5 @@ $stmt->bindParam(":nom", $name, PDO::PARAM_STR);
 $stmt->execute();
 
 // Retour vers la page quittée
-header("location: pays.php?name=".$name."");
+header("location: pays.php?name=$name");
 ?>
