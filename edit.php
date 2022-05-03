@@ -76,7 +76,7 @@
         var today = new Date();
         today = today.toLocaleDateString("fr");
         var commentaire = document.getElementById('com');
-        commentaire.innerHTML += 'Mis à jour le : '+today+ ' ' ;
+        commentaire.innerHTML += '['+today+ '] \r\n' ;
     }
     window.onload = addDateMaj();
 </script>
