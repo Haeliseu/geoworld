@@ -59,7 +59,7 @@
 
                 <div class="input-group">
                     <span class="input-group-text">Commentaires</span>
-                    <textarea class="form-control" value="" name="commentaire" id="com"></textarea>
+                    <textarea class="form-control" value="<?php echo $row['Commentary']; ?>" name="commentaire" id="com"><?php echo $row['Commentary']; ?></textarea>
                 </div>
                 <br>
                 <a href="pays.php?name=<?php echo $row['Name'] ?>" class="btn btn-danger">Annuler</a>
