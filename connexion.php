@@ -1,7 +1,6 @@
 <?php
 
  include('header.php');
-include('inc/connect_db.php');
  
 if(isset($_POST['formconnexion'])) {
    $mail = htmlspecialchars($_POST['identifiant']);
@@ -14,11 +13,11 @@ if(isset($_POST['formconnexion'])) {
       $userexist = $stmt->rowCount();
       if($userexist == 1) {
          $userinfo = $stmt->fetch();
-         $_SESSION['id'] = $userinfo['idUser'];
+         $_SESSION['idUser'] = $userinfo['idUser'];
          $_SESSION['nom'] = $userinfo['nom'];
          $_SESSION['prenom'] = $userinfo['prenom'];
          $_SESSION['identifiant'] = $userinfo['identifiant'];
-         header("Location: profil.php?id=".$_SESSION['idUser']);
+         header("Location: profil.php?idUser=". $_SESSION['idUser']);
       } else {
          $erreur = "Mail ou mot de passe incorrect !";
       }

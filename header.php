@@ -1,5 +1,7 @@
 <?php
 session_start();
+include('inc/connect_db.php');
+extract($_GET);
 ?>
 
 <!doctype html>
@@ -42,9 +44,6 @@ session_start();
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false">Continents</a>
@@ -68,22 +67,22 @@ session_start();
           </a>
         </li>
         <?php
-          if (isset($_SESSION["prenom"]) && $_SESSION["prenom"] == true) {
+          if (isset($_SESSION["prenom"]) && $_SESSION["prenom"] == true)  {
             echo '<li class="nav-item">
-                      <a class="nav-link " href="profil.php">
-                        <td class="nav-link">Compte : '.$_SESSION["prenom"].' '.$_SESSION["nom"].'</td>
-                      </a>
-                    </li>';
-          }else {
+                    "<a class="nav-link" href="profil.php?idUser='.$_SESSION['idUser'].'"
+                        class="nav-link" >Profil de : '.$_SESSION["prenom"].' '.$_SESSION["nom"].'
+                     </a>
+                  </li>';
+                                                                          }
+          else {
             echo ' <li class="nav-item">
-            <a class="nav-link" href="connexion.php">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="register.php">Register</a>
-          </li>';
-          }
+                      <a class="nav-link" href="connexion.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="register.php">Register</a>
+                    </li>';
+                }
         ?>
-        
       </ul>
       <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
         <input class="form-control mr-sm-2" type="text" placeholder="Tapez ici pour rechercher" aria-label="Search" name="recherche">
