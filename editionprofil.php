@@ -10,11 +10,6 @@
     $afficher_profil = $pdo->prepare('SELECT * FROM user_data WHERE idUser = ?');
     $afficher_profil->execute(array($getid));
     $afficher_profil = $afficher_profil->fetch();
-    // $afficher_profil = $db->query("SELECT * 
-    //     FROM utilisateur 
-    //     WHERE id = ?",
-    //     array($_SESSION['id']));
-    // $afficher_profil = $afficher_profil->fetch();
  
     if(!empty($_POST)){
         extract($_POST);
